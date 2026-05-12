@@ -10,10 +10,14 @@ body {
 	color: #1a1a1a;
 }
 
+html, body {
+	height: 100%;
+}
+
 .row.padded_row,
 .row.padded_row > div {
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-top: 16px;
+	padding-bottom: 16px;
 }
 
 /* layout and common global classes */
@@ -23,8 +27,11 @@ body {
 	border-radius: 16px;
 	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 	background-color: #ffffff;
-	overflow: hidden;
 	border: 1px solid #e8e8e8;
+	display: flex;
+	flex-direction: column;
+	max-height: 90vh;
+	overflow: hidden;
 }
 
 .top_menu {
@@ -58,7 +65,8 @@ h2 {
 	list-style: none;
 	padding: 20px 16px 0 16px;
 	margin: 0;
-	height: 500px;
+	flex: 1;
+	min-height: 0;
 	overflow-y: auto;
 	scrollbar-width: thin;
 	scrollbar-color: #ddd transparent;
