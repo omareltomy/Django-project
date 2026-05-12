@@ -1,0 +1,249 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f0f0f0;
+	font-family: 'Inter', 'Segoe UI', 'Calibri', sans-serif;
+	color: #1a1a1a;
+}
+
+.row.padded_row,
+.row.padded_row > div {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+/* layout and common global classes */
+/* ---------------------------------------------------------------------- */
+
+.chat_window {
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+	background-color: #ffffff;
+	overflow: hidden;
+	border: 1px solid #e8e8e8;
+}
+
+.top_menu {
+	background-color: #1a1a1a;
+	padding: 16px 0;
+}
+
+.top_menu .title {
+	text-align: center;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+h2 {
+	text-align: center;
+	font-weight: 300;
+	font-size: 18px;
+	color: #888;
+	padding: 24px 0 8px;
+	letter-spacing: 0.02em;
+}
+
+/* messages inside the chatbox */
+/* ---------------------------------------------------------------------- */
+
+.messages {
+	position: relative;
+	list-style: none;
+	padding: 20px 16px 0 16px;
+	margin: 0;
+	height: 500px;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: #ddd transparent;
+}
+
+.messages .message {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 20px;
+	transition: opacity 0.3s ease;
+	opacity: 0;
+}
+
+.messages .message .avatar {
+	height: 36px;
+	width: 36px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.messages .message .timestamp {
+	font-size: 10px;
+	font-weight: 400;
+	text-align: right;
+	margin-top: 6px;
+	color: #aaa;
+}
+
+.messages .message.appeared {
+	opacity: 1;
+}
+
+.messages .message .text_wrapper {
+	display: inline-block;
+	padding: 12px 16px;
+	border-radius: 12px;
+	min-width: 120px;
+	max-width: 75%;
+	position: relative;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.messages .message .text_wrapper::after,
+.messages .message .text_wrapper:before {
+	top: 14px;
+	border: solid transparent;
+	content: ' ';
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.messages .message .text_wrapper::after {
+	border-width: 10px;
+	margin-top: 0;
+}
+
+.messages .message .text_wrapper::before {
+	border-width: 12px;
+	margin-top: -2px;
+}
+
+/* bot message */
+
+.messages .message.left .avatar {
+	float: left;
+	background-color: #1a1a1a;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+}
+
+.messages .message.left .avatar::before {
+	content: 'AI';
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+}
+
+.messages .message.left .text_wrapper {
+	background-color: #f2f2f2;
+	color: #1a1a1a;
+	margin-left: 12px;
+}
+
+.messages .message.left .text_wrapper::after,
+.messages .message.left .text_wrapper::before {
+	right: 100%;
+	border-right-color: #f2f2f2;
+}
+
+.messages .message.left .timestamp {
+	color: #aaa;
+}
+
+/* user message */
+
+.messages .message.right .avatar {
+	float: right;
+	background-color: #444;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+}
+
+.messages .message.right .avatar::before {
+	content: 'Me';
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+}
+
+.messages .message.right .text_wrapper {
+	background-color: #1a1a1a;
+	color: #ffffff;
+	margin-right: 12px;
+	float: right;
+}
+
+.messages .message.right .text_wrapper::after,
+.messages .message.right .text_wrapper::before {
+	left: 100%;
+	border-left-color: #1a1a1a;
+}
+
+.messages .message.right .timestamp {
+	color: #888;
+}
+
+/* text input from user */
+
+.bottom_wrapper {
+	background: #fff;
+	padding: 16px 20px;
+	display: flex;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	border-top: 1px solid #ebebeb;
+}
+
+#message_form {
+	display: flex;
+	width: 100%;
+	gap: 12px;
+}
+
+.bottom_wrapper #msg_input {
+	flex-grow: 1;
+	outline: none;
+	padding: 11px 18px;
+	border: 1.5px solid #e0e0e0;
+	border-radius: 50px;
+	font-size: 14px;
+	color: #1a1a1a;
+	background: #fafafa;
+	transition: border-color 0.2s;
+}
+
+.bottom_wrapper #msg_input:focus {
+	border-color: #1a1a1a;
+	background: #fff;
+}
+
+.app_button_1 {
+	width: 100px;
+	background-color: #1a1a1a;
+	border-radius: 50px;
+	cursor: pointer;
+	padding: 11px 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 0.04em;
+	transition: background-color 0.2s;
+}
+
+.app_button_1:hover {
+	background-color: #333;
+}
